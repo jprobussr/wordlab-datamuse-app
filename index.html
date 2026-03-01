@@ -1,11 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordLab</title>
+    <meta
+      name="description"
+      content="WordLab is a mobile-first vocabulary and rhyme explorer powered by the Datamuse API"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div>
+          <p class="brand">WordLab</p>
+          <p class="tagline">Vocabulary + rhyme explorer</p>
+        </div>
+
+        <button
+          class="icon-btn"
+          type="button"
+          id="themeToggle"
+          aria-pressed="false"
+        >
+          Theme
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="panel">
+        <div class="container">
+          <h1 class="sr-only">WordLab</h1>
+
+          <form id="searchForm" class="search" autocomplete="off">
+            <label for="queryInput" class="sr-only">Search word</label>
+
+            <input
+              type="text"
+              id="queryInput"
+              name="query"
+              inputmode="search"
+              placeholder="Type a word (e.g., happy)"
+              required
+            />
+
+            <button type="submit">Search</button>
+          </form>
+
+          <div class="modes" role="tablist" aria-label="Search modes">
+            <button
+              class="mode-btn is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-mode="synonyms"
+            >
+              Synonyms
+            </button>
+
+            <button
+              class="mode-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-mode="rhymes"
+            >
+              Rhymes
+            </button>
+
+            <button
+              class="mode-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-mode="related"
+            >
+              Related
+            </button>
+
+            <button
+              class="mode-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-mode="sounds-like"
+            >
+              Sounds like
+            </button>
+          </div>
+
+          <div class="status-row" aria-live="polite">
+            <p id="statusText" class="status">Enter a word to begin.</p>
+          </div>
+
+          <section class="results" aria-label="Results">
+            <h2 class="sr-only">Results</h2>
+            <ul id="resultsList" class="results-list"></ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>Built with HTML, CSS, and JavaScript using the Datamuse API.</p>
+            <p>
+                <a href="#" id="repoLink">View repository</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
